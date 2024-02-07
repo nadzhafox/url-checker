@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { IsString, IsNotEmpty } from 'class-validator';
 
 export enum UrlStatus {
     NEW = "new",
@@ -12,6 +13,8 @@ export class Url {
     id: number;
 
     @Column({ length: 500, nullable: false, unique: true })
+    @IsString()
+    @IsNotEmpty()
     name: string;
 
     @Column({
