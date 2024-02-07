@@ -13,8 +13,8 @@ export class TasksService {
         private urlRepository: Repository<Url>,
     ) { }
 
-    // @Cron('*/2 * * * *')
-    @Cron('30 * * * * *')
+    @Cron('*/2 * * * *')
+    // @Cron('30 * * * * *')
     async handleCron() {
         const urls = await this.urlRepository.find({ where: { status: UrlStatus.NEW } })
         urls.forEach(url => {
