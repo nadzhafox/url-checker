@@ -1,0 +1,29 @@
+# todo hide secrets https://docs.docker.com/compose/use-secrets/
+name: url-checker
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: url-checker
+      POSTGRES_USER: url-checker
+      POSTGRES_PASSWORD: url-checker
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+
+  # redis:
+  #   image: redis:latest
+  #   ports:
+  #     - 6379:6379
+  #   volumes:
+  #     - ./volumes/redis/redis.conf:/usr/local/etc/redis/redis.conf
+  #     - ./volumes/redis/data:/data
+  #   environment:
+  #     - REDIS_USER=spotw
+  #     - REDIS_PASSWORD=spotw-password
+  #     - REDIS_PORT=6379
+  #     - REDIS_DATABASES=16
+  #   command:
+  #     redis-server /usr/local/etc/redis/redis.conf
