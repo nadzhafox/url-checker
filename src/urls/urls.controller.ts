@@ -3,11 +3,6 @@ import { UrlsService } from './urls.service';
 import { CreateUrlDto } from './dto/create-url.dto';
 import { UpdateUrlDto } from './dto/update-url.dto';
 
-// todo
-// Необходимо реализовать сервис проверки URL. Представляет собой NestJS приложение, которое предоставляет API для
-// 1. Добавить URL для проверки
-// 2. Удалить URL 
-// 3. Получить список всех URL. (без пагинации)
 @Controller('urls')
 export class UrlsController {
   constructor(private readonly urlsService: UrlsService) { }
