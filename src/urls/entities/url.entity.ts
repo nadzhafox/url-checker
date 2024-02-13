@@ -23,4 +23,15 @@ export class Url {
         default: UrlStatus.NEW,
     })
     status: UrlStatus;
+
+    @Column({
+        type: "timestamptz",
+        nullable: true,
+    })
+    retryDate: Date;
+
+    @Column({
+        default: 0
+    })
+    tryCounter: number;
 }
